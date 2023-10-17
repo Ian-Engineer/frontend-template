@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import template from "../main/template/store";
+import userSlice from "./userSlice";
+import homeSlice from "../main/home/store"
 
 const rootReducer = combineReducers({
-  template,
+  userSlice,
+  homeSlice
 });
 
 export default rootReducer;
