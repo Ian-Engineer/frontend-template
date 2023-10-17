@@ -1,4 +1,4 @@
-import Template from "../../main/template";
+import Template from "../../../main/template";
 
 const TemplateConfig = () => {
   return <Template />;

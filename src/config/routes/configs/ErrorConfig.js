@@ -1,4 +1,4 @@
-import ErrorPage from "../../main/error/ErrorPage";
+import ErrorPage from "../../../main/error/ErrorPage";
 
 const ErrorConfig = () => {
   return <ErrorPage />;
