@@ -74,7 +74,7 @@ const NavigationBar = () => {
         {
           name: "Logout",
           onClick: (() => {
-            api.authentication.logout()
+            api.deleteRequest('/api/logout')
             .then(result=>{
               if (!result.error) {
                 dispatch(logout())

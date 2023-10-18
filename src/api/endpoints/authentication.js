@@ -79,66 +79,6 @@ const signup = async ({ firstName, lastName, email, password }) => {
   }
 };
 
-const cookieLogin = async () => {
-  try {
-    const res = await fetch(`${config.endpoint}/api/cookieLogin`, {
-      method: "GET",
-      headers: {"Content-Type": "application/json"},
-      credentials: 'include'
-    })
-    .then(response => response.json())
-    if (res.success) {
-      return {
-        error: false,
-        data: res.data,
-        message: res.message,
-      };
-    }
-    return {
-      error: true,
-      data: {},
-      message: res.message,
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      error: true,
-      data: {},
-      message: "Error connecting to the server, please try again.",
-    };
-  }
-};
-
-const logout = async () => {
-  try {
-    const res = await fetch(`${config.endpoint}/api/logout`, {
-      method: "DELETE",
-      headers: {"Content-Type": "application/json"},
-      credentials: 'include'
-    })
-    .then(response => response.json())
-    if (res.success) {
-      return {
-        error: false,
-        data: res.data,
-        message: res.message,
-      };
-    }
-    return {
-      error: true,
-      data: {},
-      message: res.message,
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      error: true,
-      data: {},
-      message: "Error connecting to the server, please try again.",
-    };
-  }
-}
-
 const requestPasswordReset = async ({email}) => {
   const payload = {
     email,
@@ -212,8 +152,6 @@ const resetPassword = async ({ token, password }) => {
 const authentication = {
   login,
   signup,
-  cookieLogin,
-  logout,
   requestPasswordReset,
   resetPassword
 };

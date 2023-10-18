@@ -48,7 +48,8 @@ const ContactForm = () => {
         }
 
         if (!error) {
-            api.contact.sendMessage({email, subject, message})
+            const payload = {email, subject, message}
+            api.postRequest('/api/contact', payload)
                 .then(result => {
                     if (result.error) {
                         setSubmitError(true)

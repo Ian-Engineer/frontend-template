@@ -13,7 +13,7 @@ const Root = () => {
   useEffect(()=>{
     // load any initial data you need before the user loads the site
     // including cookie authentication
-    api.authentication.cookieLogin()
+    api.getRequest('/api/cookieLogin')
     .then(response=>{
       if (!response.error) {
         dispatch(setUser(response.data));
