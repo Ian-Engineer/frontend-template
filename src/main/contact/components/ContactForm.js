@@ -1,9 +1,9 @@
-import { Apple, Contactless, Facebook, Twitter, YouTube, Instagram } from "@mui/icons-material";
+import { Apple, Contactless, Facebook, Twitter, YouTube, Instagram, LinkedIn, GitHub } from "@mui/icons-material";
 import { Collapse, IconButton, Paper, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import InputForm from "../../_components/InputForm";
 import { useState, useEffect } from "react";
-import SolGoodButton from "../../_components/SolGoodButton";
+import StyledButton from "../../_components/StyledButton";
 import api from "../../../api";
 import { useSelector } from "react-redux";
 
@@ -25,25 +25,25 @@ const ContactForm = () => {
     const handleSubmit = () => {
         let error;
         // verify email is used
-        setEmailError(0)
-        setSubjectError(0)
-        setMessageError(0)
+        setEmailError()
+        setSubjectError()
+        setMessageError()
         if (email.indexOf("@") < 0 || email.indexOf(".") < 0) {
-            setEmailError(3);
+            setEmailError('Invalid email address.');
             error = true;
         }
         if (!email.length) {
-            setEmailError(1);
+            setEmailError('Please input your email.');
             error = true;
         }
 
         if (!subject.length) {
-            setSubjectError(1);
+            setSubjectError('Please include a subject.');
             error = true;
         }
 
         if (!message.length) {
-            setMessageError(1);
+            setMessageError('Please include a message.');
             error = true;
         }
 
@@ -82,18 +82,27 @@ const ContactForm = () => {
                 How to reach us!
             </Typography>
             <div className="flex flex-row">
-                <IconButton component={Link} to="https://www.facebook.com/solgoodmedia">
+                <IconButton component={Link} to="https://www.facebook.com/">
                     <Facebook/>
                 </IconButton>
-                <IconButton component={Link} to="https://www.youtube.com/channel/UC8pztysf7GSTD2GlGO8xcAw?sub_confirmation=1">
+                <IconButton component={Link} to="https://www.youtube.com/">
                     <YouTube/>
                 </IconButton>
-                <IconButton component={Link} to="https://www.instagram.com/solgoodmedia/">
+                <IconButton component={Link} to="https://www.instagram.com/">
                     <Instagram/>
+                </IconButton>
+                <IconButton component={Link} to="https://www.twitter.com/">
+                    <Twitter/>
+                </IconButton>
+                <IconButton component={Link} to="https://www.linkedin.com/">
+                    <LinkedIn/>
+                </IconButton>
+                <IconButton component={Link} to="https://www.github.com/">
+                    <GitHub/>
                 </IconButton>
             </div>
             <Typography className="flex flex-col justify-center items-center">
-                <a href="mailto:solgood44@gmail.com">solgood44@gmail.com</a>
+                <a href="mailto:ianswensson@gmail.com">ianswensson@gmail.com</a>
             </Typography>
             <Typography variant="h5" className="p-2" color={submitError ? 'red' : null}>{submitMessage}</Typography>
             <Collapse className="w-full" in={!messageSent}>
@@ -146,7 +155,7 @@ const ContactForm = () => {
                 </Typography>
             </div>
                 <div className="pt-5 flex justify-center">
-                    <SolGoodButton handleClick={handleSubmit} buttonText={'Send'} ariaLabel="send"/>
+                    <StyledButton handleClick={handleSubmit} buttonText={'Send'} ariaLabel="send"/>
                 </div>
             </Collapse>
         </Paper>

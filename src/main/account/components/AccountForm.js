@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Paper, Typography, Fade, Collapse } from "@mui/material";
-import SolGoodButton from "../../_components/SolGoodButton";
+import StyledButton from "../../_components/StyledButton";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import InputForm from "../../_components/InputForm";
@@ -124,7 +124,7 @@ const AccountForm = () => {
                 <Typography color='green'>
                     {newEmailSuccess ? "Email updated." : null}
                 </Typography>
-                <SolGoodButton
+                <StyledButton
                     buttonText={'Change Email'}
                     handleClick={()=>{
                         setOpenEmail(!openEmail);
@@ -152,7 +152,7 @@ const AccountForm = () => {
                         error={passwordError}
                     />
                     <div className="">
-                        <SolGoodButton 
+                        <StyledButton 
                             buttonText={'Update'}
                             handleClick={updateEmail}
                             ariaLabel="update email"
@@ -164,7 +164,7 @@ const AccountForm = () => {
                 <Typography color='green'>
                     {newPasswordSuccess ? "Password updated." : null}
                 </Typography>
-                <SolGoodButton
+                <StyledButton
                     buttonText={'Change Password'}
                     handleClick = {()=>{
                         setOpenPassword(!openPassword);
@@ -191,7 +191,7 @@ const AccountForm = () => {
                         required={true}
                         error={newPasswordError}
                     />
-                    <SolGoodButton
+                    <StyledButton
                         buttonText={'Update'}
                         handleClick={updatePassword}
                         ariaLabel="update password"

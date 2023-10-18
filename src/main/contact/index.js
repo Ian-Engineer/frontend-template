@@ -1,7 +1,5 @@
 import ContactForm from "./components/ContactForm";
 import { Box, Fade } from "@mui/material";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const ContactPage = () => {

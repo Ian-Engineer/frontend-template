@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const templateSlice = createSlice({
-  name: "template",
+const contactSlice = createSlice({
+  name: "contact",
   initialState: {
     example: "Hello World",
   },
@@ -15,5 +15,5 @@ const templateSlice = createSlice({
   },
 });
 
-export const { setExample } = templateSlice.actions;
-export default templateSlice.reducer;
+export const { setExample } = contactSlice.actions;
+export default contactSlice.reducer;
