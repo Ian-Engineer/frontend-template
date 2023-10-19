@@ -1,4 +1,3 @@
-import authentication from "./endpoints/authentication";
 import categories from "./endpoints/categories"
 import search from "./endpoints/search";
 import stripe from "./endpoints/stripe";
@@ -9,7 +8,6 @@ import audio from "./endpoints/audio";
 import general from "./endpoints/general";
 
 const api = {
-    authentication,
     categories,
     search,
     stripe,
