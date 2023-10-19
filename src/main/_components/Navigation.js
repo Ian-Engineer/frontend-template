@@ -39,6 +39,7 @@ const NavigationBar = () => {
   }
 
   const handleNavigate = (path) => {
+    console.log(path)
     handleCloseRtMenu();
     handleCloseNavMenu();
     if (path) navigate(path);
@@ -121,7 +122,7 @@ const NavigationBar = () => {
               className="flex items-center w-20 justify-center"
               sx={{ fontWeight: "bold" }}
             >
-              Categories
+              Menu
             </Typography>
           </Button>
           <Menu
@@ -145,11 +146,12 @@ const NavigationBar = () => {
               }
             }
           >
-            {leftMenuList.children.map((page) => {
+            {leftMenuList.map((page) => {
               return (
-                <MenuItem key={page.name} onClick={() => handleNavigate(page.path)}>
+                <MenuItem key={page.name} onClick={page.onClick}>
                   <Typography
                     textAlign="center"
+                    color={'primary.contrastText'}
                   >
                     {page.name}
                   </Typography>
@@ -171,7 +173,7 @@ const NavigationBar = () => {
               className="flex items-center w-20 justify-center"
               sx={{ fontWeight: "bold" }}
             >
-              Menu
+              Account
             </Typography>
           </Button>
           <Menu
