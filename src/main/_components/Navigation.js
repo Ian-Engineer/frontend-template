@@ -1,18 +1,12 @@
-import { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import { useState, useEffect } from "react";
+import { AppBar, Box, Toolbar, IconButton, Button, Typography, Menu, MenuItem } from "@mui/material";
 import navigationConfig from "../../config/navigation";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import theme from "../../config/theme";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, setLastLocation } from "../../config/userSlice";
+import api from "../../api";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
@@ -100,17 +94,7 @@ const NavigationBar = () => {
   }, [signedIn])
 
   useEffect(()=>{
-    if (categories.length === 0) {
-      // make an api request getting the list of categories
-      api.categories.getAll()
-      .then(result => {
-        // setCategories([ {title: 'New', id: 0}, ...result.data])
-        dispatch(setCategories([ {title: 'New', id: 0}, ...result.data]))
-        dispatch(setLoadingCategories(false))
-      })
-    } else {
-      dispatch(setLoadingCategories(false))
-    }
+    // load any information necessary for the nav bar here
   },[])
 
   return (

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import api from "../../../api";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../config/userSlice";
-import Subscribe from "../../_components/Subscribe";
 import StyledButton from '../../_components/StyledButton';
 
 const RegisterForm = () => {
@@ -108,9 +107,6 @@ const RegisterForm = () => {
           </Typography>
           <StyledButton buttonText={"Log in"} handleClick={() => navigate('/login')} ariaLabel="back"/>
         </div>
-      </Collapse>
-      <Collapse in={registered}>
-        <Subscribe email={email}/>
       </Collapse>
     </Paper>
   );

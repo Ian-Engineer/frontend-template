@@ -25,11 +25,6 @@ const AccountForm = () => {
     const [passwordError, setPasswordError] = useState(0);
     const [newPasswordStatus, setNewPasswordStatus] = useState('');
 
-    const closeChange = () => {
-        setChangeError('');
-        setOpenChange(false);
-    }
-
     const updateEmail = () => {
         setNewEmailError()
         setPasswordError()
