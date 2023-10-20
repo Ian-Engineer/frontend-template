@@ -16,7 +16,6 @@ const RegisterForm = () => {
   const [passwordError, setPasswordError] = useState(0);
   const [confirmPasswordError, setConfirmPasswordError] = useState(0);
   const [registerError, setRegisterError] = useState("");
-  const [registered, setRegistered] = useState(false);
 
   const navigate = useNavigate();
 
@@ -54,7 +53,7 @@ const RegisterForm = () => {
           } else {
             setRegisterError("");
             dispatch(setUser(response.data));
-            setRegistered(true)
+            navigate('/')
           }
         });
     }
@@ -69,45 +68,43 @@ const RegisterForm = () => {
       >
         Register
       </Typography>
-      <Collapse in={!registered}>
-        <div className="flex flex-col items-center">
-          <Typography>{registerError}</Typography>
-          <InputForm
-            placeholder={"Email"}
-            input={email}
-            setInput={setEmail}
-            required={true}
-            error={emailError}
-            ariaLabel="input email"
-            autoComplete={'email'}
-          />
-          <InputForm
-            placeholder={"Password"}
-            input={password}
-            setInput={setPassword}
-            required={true}
-            error={passwordError}
-            ariaLabel="input password"
-            autoComplete={'new-password'}
-          />
-          <InputForm
-            placeholder={"Confirm Password"}
-            input={confirmPassword}
-            setInput={setConfirmPassword}
-            required={true}
-            error={confirmPasswordError}
-            ariaLabel="confirm password"
-            autoComplete={'new-password'}
-          />
-          <div className="h-2" />
-          <StyledButton buttonText={"Continue to Payment"} handleClick={createAccount} ariaLabel="submit"/>
-          <div className="h-5" />
-          <Typography>
-            Already have an account?
-          </Typography>
-          <StyledButton buttonText={"Log in"} handleClick={() => navigate('/login')} ariaLabel="back"/>
-        </div>
-      </Collapse>
+      <div className="flex flex-col items-center">
+        <Typography>{registerError}</Typography>
+        <InputForm
+          placeholder={"Email"}
+          input={email}
+          setInput={setEmail}
+          required={true}
+          error={emailError}
+          ariaLabel="input email"
+          autoComplete={'email'}
+        />
+        <InputForm
+          placeholder={"Password"}
+          input={password}
+          setInput={setPassword}
+          required={true}
+          error={passwordError}
+          ariaLabel="input password"
+          autoComplete={'new-password'}
+        />
+        <InputForm
+          placeholder={"Confirm Password"}
+          input={confirmPassword}
+          setInput={setConfirmPassword}
+          required={true}
+          error={confirmPasswordError}
+          ariaLabel="confirm password"
+          autoComplete={'new-password'}
+        />
+        <div className="h-2" />
+        <StyledButton buttonText={"Continue"} handleClick={createAccount} ariaLabel="submit"/>
+        <div className="h-5" />
+        <Typography>
+          Already have an account?
+        </Typography>
+        <StyledButton buttonText={"Log in"} handleClick={() => navigate('/login')} ariaLabel="back"/>
+      </div>
     </Paper>
   );
 };
